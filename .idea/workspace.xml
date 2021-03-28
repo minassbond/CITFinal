@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="PokedexDB:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd56dad4-41bd-40fd-93a2-761a89be0e14" name="Default Changelist" comment="Final project restart 2">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/PokedexDB/pokedex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/PokedexDB/HelloServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="dd56dad4-41bd-40fd-93a2-761a89be0e14" name="Default Changelist" comment="Servlet works from previous project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,6 +24,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1qOKGOcUT96f3PKTmvWGeIPOeCS" />
   <component name="ProjectViewState">
@@ -146,7 +153,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1616945102008</updated>
-      <workItem from="1616945104187" duration="838000" />
+      <workItem from="1616945104187" duration="1150000" />
     </task>
     <task id="LOCAL-00001" summary="Final project restart">
       <created>1616945298126</created>
@@ -162,7 +169,21 @@
       <option name="project" value="LOCAL" />
       <updated>1616945626682</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Servlet works from previous project">
+      <created>1616946127422</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1616946127422</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Servlet works from previous project">
+      <created>1616946201237</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1616946201237</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +203,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Final project restart" />
     <MESSAGE value="Final project restart 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final project restart 2" />
+    <MESSAGE value="Servlet works from previous project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Servlet works from previous project" />
   </component>
 </project>
