@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd56dad4-41bd-40fd-93a2-761a89be0e14" name="Default Changelist" comment="Servlet works from previous project" />
+    <list default="true" id="dd56dad4-41bd-40fd-93a2-761a89be0e14" name="Default Changelist" comment="Servlet works from previous project">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,7 +155,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1616945102008</updated>
-      <workItem from="1616945104187" duration="1150000" />
+      <workItem from="1616945104187" duration="1636000" />
     </task>
     <task id="LOCAL-00001" summary="Final project restart">
       <created>1616945298126</created>
@@ -183,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616946201237</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Servlet works from previous project">
+      <created>1616946458081</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1616946458081</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
