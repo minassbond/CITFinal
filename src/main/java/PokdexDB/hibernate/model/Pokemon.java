@@ -3,6 +3,7 @@ package PokdexDB.hibernate.model;
 import java.io.Serializable;
 
 import javax.persistence.*;
+
 @Entity
 @Table(name = "pokemon")
 public class Pokemon implements Serializable {
@@ -23,7 +24,7 @@ public class Pokemon implements Serializable {
         return pokename;
     }
 
-    public void setPokename(String pokename){
+    public void setPokename(String pokename) {
         this.pokename = pokename;
     }
 
@@ -31,11 +32,11 @@ public class Pokemon implements Serializable {
         return poketype;
     }
 
-    public void setPoketype(String poketype){
+    public void setPoketype(String poketype) {
         this.poketype = poketype;
     }
 
-    public String toString(){
+    public String toString() {
         return Integer.toString(id) + " " + pokename + " " + poketype;
     }
 }
