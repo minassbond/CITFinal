@@ -29,7 +29,6 @@ import java.util.List;
         private void makeResponse(HttpServletRequest request, HttpServletResponse response, String requestType) throws ServletException, IOException{
             System.out.println(requestType + " : Pokemon");
             MyDAO = PokedexDao.getInstance();
-            List<Pokemon> pk = MyDAO.getPokemon();
             Pokemon p;
             int id;
             boolean idProblem = false;
@@ -63,6 +62,14 @@ import java.util.List;
                 if (name.length() > 50){
                     nameProblem = true;
                 }
+            }
+            response.setContentType("text/html");
+            try{
+                PrintWriter respond = response.getWriter();
+
+            }catch(IOException ex){
+                ex.printStackTrace();
+                response.sendError(1, "Something went wrong");
             }
 
 

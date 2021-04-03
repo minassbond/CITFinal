@@ -10,6 +10,6 @@
 <br/>
 <h2><%= "Please enter below to begin"%></h2>
 <br/>
-<p><a class="btn row col-first btn-primary m-3" href="EnterPokemon">Enter your Pokemon</a></p>
+<p><a class="btn row col-first btn-primary m-3" href="mainDex">Enter your Pokemon</a></p>
 </body>
 </html>
