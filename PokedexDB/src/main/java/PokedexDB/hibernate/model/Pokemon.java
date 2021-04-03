@@ -36,6 +36,10 @@ public class Pokemon implements Serializable {
         this.poketype = poketype;
     }
 
+    public int getPokeID(){return id;}
+
+    public void setPokeID(int pokeID){this.id = pokeID;}
+
     public String toString() {
         return Integer.toString(id) + " " + pokename + " " + poketype;
     }

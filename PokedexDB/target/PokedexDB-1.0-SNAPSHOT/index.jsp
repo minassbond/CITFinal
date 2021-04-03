@@ -8,13 +8,8 @@
 <h1><%= "Welcome to the Pokedex database!" %>
 </h1>
 <br/>
-<h2><%= "Please enter your new entry below:"%></h2>
+<h2><%= "Please enter below to begin"%></h2>
 <br/>
-<form action="data" method="get">
-    <table>
-        <tr> <td> Pokemon Name: </td><td><input type="text" name="pokemon"></td></tr>
-        <tr> <td> Pokemon Type: </td><td><input type="text" name="type"></td></tr>
-        <tr> <td> Area Seen: </td><td><input type="text" name="area"></td></tr>
-        <tr> <td> </td><td><input type="submit" value="submit"></td></tr>
+<p><a class="btn row col-first btn-primary m-3" href="EnterPokemon">Enter your Pokemon</a></p>
 </body>
 </html>

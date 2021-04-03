@@ -64,5 +64,21 @@ public class PokedexDao {
             ses1.close();
         }
     }
+    
+    public void savePokemon(Pokemon p){
+        try{
+            ses1 = factory.openSession();
+            ses1.getTransaction().begin();
+            System.out.println("Saving Pokemon Number: " + p.getPokeID() + " PokemonName: " + p.getPokename());
+            ses1.saveOrUpdate(p);
+            ses1.getTransaction().commit();
+        } catch (Exception e){
+            e.printStackTrace();
+            //Rollback
+            ses1.getTransaction().rollback();
+        }finally{
+            ses1.close();
+        }
+    }
 
 }
