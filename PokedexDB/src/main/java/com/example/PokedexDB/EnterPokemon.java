@@ -10,6 +10,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.List;
 
     @WebServlet(name = "EnterPokemon", value = "/EnterPokemon")
@@ -18,60 +20,46 @@ import java.util.List;
 
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-            makeResponse(request, response, "GET");
+            response.setContentType("text/html");
+            try {
+                PrintWriter respond = response.getWriter();
+                respond.println("<!DOCTYPE html><html lang=\"en-us\"><head>");
+                respond.println("<title> Enter a Pokemon</title>");
+                respond.println("</head><body>");
+                respond.println("<h1>Enter a Pokemon</h1>");
+                respond.println("<a href=\"mainDex\"><button type=\\\"button\\\">Return to Database</button/></a>");
+                respond.print("<form method=\"POST\" action=\"EnterPokemon\">");
+                respond.println("Pokemon Number: ");
+                respond.println("<input type=number name=number/>");
+                respond.println("Pokemon Name: ");
+                respond.println("<input type=text name=name/>");
+                respond.println("Pokemon Type: ");
+                respond.println("<input type=text name=type/>");
+                respond.println("<input type=\"submit\" value=\"Save\" />");
+            } catch(IOException e){
+                e.printStackTrace();
+                response.sendError(1, "Something went wrong");
+            }
         }
 
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            makeResponse(request, response, "POST");
-
-        }
-
-        private void makeResponse(HttpServletRequest request, HttpServletResponse response, String requestType) throws ServletException, IOException{
-            System.out.println(requestType + " : Pokemon");
             MyDAO = PokedexDao.getInstance();
-            Pokemon p;
-            int id;
-            boolean idProblem = false;
-            boolean nameProblem = false;
+            int number = Integer.parseInt(request.getParameter("number"));
+            String name = request.getParameter("name");
+            String type = request.getParameter("type");
+            Pokemon p = new Pokemon();
+            p.setPokeID(number);
+            p.setPokename(name);
+            p.setPoketype(type);
+            MyDAO.savePokemon(p);
+            number = p.getPokeID();
+            name = p.getPokename();
+            type = p.getPoketype();
 
-            String pid = request.getParameter("pokeID");
-            String name = request.getParameter("pokename");
-            String type = request.getParameter("poketype");
-
-            if(pid == null && name == null){
-                pid = "New";
-                name = "";
-                type = "";
-            } else if(!pid.equals("New")){
-                p = MyDAO.getPokemon(Integer.parseInt(pid));
-                if (p==null) {
-                    response.sendRedirect("pokedex");
-                    return;
-                }
-                name = p.getPokename();
-                type = p.getPoketype();
-                }else if (pid != null && name != null) {
-                System.out.println("New Pokemon data entry");
-                try{
-                    if(!pid.equals("New")){
-                        id = Integer.parseInt(pid);
-                    }
-                } catch (NumberFormatException e) {
-                    idProblem = true;
-                }
-                if (name.length() > 50){
-                    nameProblem = true;
-                }
-            }
-            response.setContentType("text/html");
-            try{
-                PrintWriter respond = response.getWriter();
-
-            }catch(IOException ex){
-                ex.printStackTrace();
-                response.sendError(1, "Something went wrong");
-            }
 
 
         }
-    }
+
+        }
+
+

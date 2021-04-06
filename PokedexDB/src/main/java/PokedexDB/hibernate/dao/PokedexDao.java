@@ -5,6 +5,7 @@ import PokedexDB.hibernate.model.Pokemon;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import java.sql.PreparedStatement;
 import java.util.List;
 
 public class PokedexDao {
@@ -69,7 +70,8 @@ public class PokedexDao {
         try{
             ses1 = factory.openSession();
             ses1.getTransaction().begin();
-            System.out.println("Saving Pokemon Number: " + p.getPokeID() + " PokemonName: " + p.getPokename());
+            String query = "insert into pokemon(pokeID, pokename, poketype) values (?,?,?)";
+            System.out.println("Saving Pokemon Number: " + p.getPokeID() + " PokemonName: " + p.getPokename() + " PokemonType: " + p.getPoketype());
             ses1.saveOrUpdate(p);
             ses1.getTransaction().commit();
         } catch (Exception e){
