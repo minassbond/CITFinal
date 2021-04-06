@@ -66,12 +66,14 @@ public class PokedexDao {
         }
     }
     
-    public void savePokemon(Pokemon p){
+    public void savePokemon(int number, String name, String type){
         try{
             ses1 = factory.openSession();
-            ses1.getTransaction().begin();
-            String query = "insert into pokemon(pokeID, pokename, poketype) values (?,?,?)";
-            System.out.println("Saving Pokemon Number: " + p.getPokeID() + " PokemonName: " + p.getPokename() + " PokemonType: " + p.getPoketype());
+            ses1.beginTransaction();
+            Pokemon p = new Pokemon();
+            p.setPokeID(number);
+            p.setPokename(name);
+            p.setPoketype(type);
             ses1.saveOrUpdate(p);
             ses1.getTransaction().commit();
         } catch (Exception e){
