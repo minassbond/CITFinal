@@ -32,10 +32,13 @@ import java.util.List;
 
         try {
             MyDAO = PokedexDao.getInstance();
-            int number = Integer.parseInt(request.getParameter("number"));
+            String number = request.getParameter("number");
+            System.out.println(number);
+            Integer number1 = Integer.parseInt(number);
+           // System.out.println(number1);
             String name = request.getParameter("name");
             String type = request.getParameter("type");
-            MyDAO.savePokemon(number, name, type);
+            MyDAO.savePokemon(number1, name, type);
         } catch (Exception e){
             System.out.println("Error adding to DB");
         }
@@ -48,7 +51,7 @@ import java.util.List;
                 respond.println("<h1>Enter a Pokemon</h1>");
                 respond.print("<form method=\"POST\" action=\"EnterPokemon\">");
                 respond.println("Pokemon Number: ");
-                respond.println("<input type=number name=number/>");
+                respond.println("<input type=text name=number/>");
                 respond.println("Pokemon Name: ");
                 respond.println("<input type=text name=name/>");
                 respond.println("Pokemon Type: ");
