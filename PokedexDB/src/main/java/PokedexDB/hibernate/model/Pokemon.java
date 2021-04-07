@@ -12,7 +12,7 @@ public class Pokemon implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pokeID", nullable = false)
+    @Column(name = "pokeID", nullable = true)
     private Integer id;
 
     @Column(name = "pokename")

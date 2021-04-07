@@ -2,6 +2,7 @@ package com.example.PokedexDB;
 
 import PokedexDB.hibernate.dao.PokedexDao;
 import PokedexDB.hibernate.model.Pokemon;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,20 +22,33 @@ import java.util.List;
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
             enterPokemon(request, response, "GET");
+
         }
 
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             enterPokemon(request, response, "POST");
+            try {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("EnterPokemon.jsp");
+                dispatcher.forward(request, response);
+            }catch(Exception e){
+                System.out.println("We were unable to capture your data.");
+            }
         }
 
         protected void enterPokemon(HttpServletRequest request, HttpServletResponse response, String requestType) throws ServletException, IOException{
             System.out.println("Enter a pokemon: " + requestType);
+            try {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("EnterPokemon.jsp");
+                dispatcher.forward(request, response);
+            }catch(Exception e){
+                System.out.println("Your form was unable to collect the data.");
+            }
 
         try {
             MyDAO = PokedexDao.getInstance();
             String number = request.getParameter("number");
             System.out.println(number);
-            Integer number1 = Integer.parseInt(number);
+            int number1 = Integer.parseInt(number);
            // System.out.println(number1);
             String name = request.getParameter("name");
             String type = request.getParameter("type");
@@ -42,30 +56,7 @@ import java.util.List;
         } catch (Exception e){
             System.out.println("Error adding to DB");
         }
-            response.setContentType("text/html");
-            try {
-                PrintWriter respond = response.getWriter();
-                respond.println("<!DOCTYPE html><html lang=\"en-us\"><head>");
-                respond.println("<title> Enter a Pokemon</title>");
-                respond.println("</head><body>");
-                respond.println("<h1>Enter a Pokemon</h1>");
-                respond.print("<form method=\"POST\" action=\"EnterPokemon\">");
-                respond.println("Pokemon Number: ");
-                respond.println("<input type=text name=number/>");
-                respond.println("Pokemon Name: ");
-                respond.println("<input type=text name=name/>");
-                respond.println("Pokemon Type: ");
-                respond.println("<input type=text name=type/>");
-                respond.println("<input type=\"submit\" value=\"Save\" />");
-                respond.println("</form>");
-                respond.println("<br>");
-                respond.println("<a href=\"mainDex\"><button type=\\\"button\\\">Return to Database</button/></a>");
-                respond.println("</br>");
-                respond.println("</body>");
-            } catch(IOException e){
-                e.printStackTrace();
-                response.sendError(1, "Something went wrong");
-            }
+
 
 
         }
